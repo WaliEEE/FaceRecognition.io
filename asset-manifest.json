@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/WaliEEE/FaceRecognition.io/static/css/main.13034504.chunk.css",
+    "main.js": "/WaliEEE/FaceRecognition.io/static/js/main.259faed9.chunk.js",
+    "main.js.map": "/WaliEEE/FaceRecognition.io/static/js/main.259faed9.chunk.js.map",
+    "runtime-main.js": "/WaliEEE/FaceRecognition.io/static/js/runtime-main.63b6cbbc.js",
+    "runtime-main.js.map": "/WaliEEE/FaceRecognition.io/static/js/runtime-main.63b6cbbc.js.map",
+    "static/css/2.31461e4f.chunk.css": "/WaliEEE/FaceRecognition.io/static/css/2.31461e4f.chunk.css",
+    "static/js/2.723d481e.chunk.js": "/WaliEEE/FaceRecognition.io/static/js/2.723d481e.chunk.js",
+    "static/js/2.723d481e.chunk.js.map": "/WaliEEE/FaceRecognition.io/static/js/2.723d481e.chunk.js.map",
+    "index.html": "/WaliEEE/FaceRecognition.io/index.html",
+    "static/css/2.31461e4f.chunk.css.map": "/WaliEEE/FaceRecognition.io/static/css/2.31461e4f.chunk.css.map",
+    "static/css/main.13034504.chunk.css.map": "/WaliEEE/FaceRecognition.io/static/css/main.13034504.chunk.css.map",
+    "static/js/2.723d481e.chunk.js.LICENSE.txt": "/WaliEEE/FaceRecognition.io/static/js/2.723d481e.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.63b6cbbc.js",
+    "static/css/2.31461e4f.chunk.css",
+    "static/js/2.723d481e.chunk.js",
+    "static/css/main.13034504.chunk.css",
+    "static/js/main.259faed9.chunk.js"
+  ]
+}
