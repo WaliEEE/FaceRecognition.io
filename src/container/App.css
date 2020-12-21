@@ -1,0 +1,13 @@
+.App {
+  text-align: center;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.particles {
+  position: -webkit-sticky;
+  z-index: -1;
+}
