@@ -32,8 +32,27 @@ class App extends Component {
     this.state = {
       input: "",
       imageUrl: "",
+      imageBox: {},
     };
   }
+
+  calculateFace = (data) => {
+    const faceBox = data.outputs[0].data.regions[0].region_info.bounding_box;
+    const imgBox = document.getElementById("img");
+    const width = Number(imgBox.width);
+    const height = Number(imgBox.height);
+    return {
+      leftCol: faceBox.left_col * width,
+      topRow: faceBox.top_row * height,
+      rightCol: width - faceBox.right_col * width,
+      bottomRow: height - faceBox.bottom_row * height,
+    };
+  };
+
+  displayBox = (imageBox) => {
+    console.log(imageBox);
+    this.setState({ imageBox });
+  };
 
   onInputChange = (event) => {
     this.setState({ input: event.target.value });
@@ -41,15 +60,13 @@ class App extends Component {
 
   onButtonSubmit = () => {
     this.setState({ imageUrl: this.state.input });
-    app.models.predict(Clarifai.FACE_DETECT_MODEL, this.state.input).then(
-      function (response) {
-        console.log(
-          response.outputs[0].data.regions[0].region_info.bounding_box
-        );
-      },
-
-      function (err) {}
-    );
+    app.models
+      .predict(Clarifai.FACE_DETECT_MODEL, this.state.input)
+      .then((response) => {
+        this.displayBox(this.calculateFace(response)).catch((err) => {
+          console.log(err);
+        });
+      });
   };
 
   render() {
@@ -62,7 +79,7 @@ class App extends Component {
           inputChange={this.onInputChange}
           buttonSubmit={this.onButtonSubmit}
         />
-        <Face imageUrl={this.state.imageUrl} />
+        <Face box={this.state.imageBox} imageUrl={this.state.imageUrl} />
         <Particles className="particles" params={particle} />
       </div>
     );
