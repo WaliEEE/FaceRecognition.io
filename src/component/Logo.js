@@ -3,7 +3,7 @@ import Tilt from "react-tilt";
 
 export default function Logo() {
   return (
-    <div className="ml6 ma3 f5">
+    <div className=" pl6 pt5 f5">
       <Tilt
         className="Tilt ba3 br3 shadow-5"
         options={{ max: 50 }}

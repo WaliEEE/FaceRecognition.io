@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
+import SignIn from "../component/SignIn";
+import Register from "../component/Register";
 import Navigation from "../component/Navigation";
 import Logo from "../component/Logo";
 import Form from "../component/ImageForm";
@@ -33,6 +35,7 @@ class App extends Component {
       input: "",
       imageUrl: "",
       imageBox: {},
+      route: "SignIn",
     };
   }
 
@@ -69,20 +72,40 @@ class App extends Component {
       });
   };
 
+  onRouteChange = (route) => {
+    this.setState({ route: route });
+  };
+
   render() {
-    return (
-      <div>
-        <Navigation />
-        <Logo />
-        <Rank />
-        <Form
-          inputChange={this.onInputChange}
-          buttonSubmit={this.onButtonSubmit}
-        />
-        <Face box={this.state.imageBox} imageUrl={this.state.imageUrl} />
-        <Particles className="particles" params={particle} />
-      </div>
-    );
+    const { imageBox, imageUrl, route} = this.state;
+    if (route === "home") {
+      return (
+        <div>
+          <Navigation isSignedIn={true} onRouteChange={this.onRouteChange} />
+          <Logo />
+          <Rank />
+          <Form
+            inputChange={this.onInputChange}
+            buttonSubmit={this.onButtonSubmit}
+          />
+          <Face box={imageBox} imageUrl={imageUrl} />
+          <Particles className="particles" params={particle} />
+        </div>
+      );
+    } else if (route === "SignIn") {
+      return (
+        <div>
+          <Logo /> <SignIn onRouteChange={this.onRouteChange} />
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <Logo />
+          <Register onRouteChange={this.onRouteChange} />
+        </div>
+      );
+    }
   }
 }
 
